@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/Content/css/styles.css" rel="stylesheet" type="text/css">
+    <title>Inventory</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1>ROCKS</h1>
+    </div>
+    <div class="container">
+      <h2>Add rocks</h2><br>
+
+        <form action="/" method="post">
+          <label for="name">Rock Name:</label>
+          <input type="text" name="name">
+          <label for="mass">Mass of rock (in grams):</label>
+          <input type="number" name="mass">
+          <button type="submit">SUBMIT</button>
+        </form>
+      @if (Model != null)
+      {
+        <h3>Current Collection</h3>
+        <ol>
+          @foreach(var rock in Model)
+          {
+            <li>@rock.GetName(), @rock.GetMass() g</li>
+          }
+        </ol>
+      }
+      else
+      {
+        <p>Your collection is currently empty.</p>
+      }
+    </div>
+  </body>
+</html>
